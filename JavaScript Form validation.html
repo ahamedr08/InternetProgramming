@@ -1,66 +1,100 @@
-<!----
-Develop a web page that allows the user to enter all the details of the passenger(name,
-age, email id , gender).Write a client side scripting code to validate the email id ,age
-and gender, where email id should consists of the special symbol @and
-period(.),where age between 1 to 100 and gender is male or female.-->
+<!---Create a User Registration form with First Name, Last name, Address, City, State,
+Country,Pincode, Username and Password fields for a General login webpage and
+satisfy the following criteria:
+Create a validate ( ) function that does the following:
+(a) Checks that the First Name, Last Name, City, Country, Username, and Password1
+fields arefilled out.
+(b) Checks that the Pincode is exactly 6 numeric’s.
+(c) Checks that the state is exactly two characters.
+(d) Checks that the email is a valid email address.
+• false if email has fewer than 6 characters
+• false if email does not contain an @ symbol
+• false if email does not contain a period (.)
+• true otherwise
+--->
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Passenger Details</title>
+  <title>User Registration</title>
   <script>
-    function validateForm() {
-      // Retrieve the form values
-      var name = document.getElementById("name").value;
-      var age = document.getElementById("age").value;
+    function validate() {
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var address = document.getElementById("address").value;
+      var city = document.getElementById("city").value;
+      var state = document.getElementById("state").value;
+      var country = document.getElementById("country").value;
+      var pincode = document.getElementById("pincode").value;
+      var username = document.getElementById("username").value;
+      var password1 = document.getElementById("password1").value;
       var email = document.getElementById("email").value;
-      var gender = document.getElementById("gender").value;
       
-      // Validate the email format
-      var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-      if (!emailRegex.test(email)) {
+      // Check required fields
+      if (firstName === "" || lastName === "" || city === "" || country === "" || username === "" || password1 === "") {
+        alert("Please fill in all required fields.");
+        return false;
+      }
+      
+      // Check pincode format
+      var pincodeRegex = /^\d{6}$/;
+      if (!pincode.match(pincodeRegex)) {
+        alert("Pincode should be exactly 6 digits.");
+        return false;
+      }
+      
+      // Check state format
+      if (state.length !== 2) {
+        alert("State should be exactly two characters.");
+        return false;
+      }
+      
+      // Check email format
+      var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+      if (email.length < 6 || !email.includes("@") || !email.includes(".")) {
         alert("Please enter a valid email address.");
         return false;
       }
       
-      // Validate the age range
-      if (age < 1 || age > 100) {
-        alert("Please enter a valid age between 1 and 100.");
-        return false;
-      }
-      
-      // Validate the gender
-      if (gender !== "male" && gender !== "female") {
-        alert("Please select a valid gender (male or female).");
-        return false;
-      }
-      
-      // All validations passed, the form can be submitted
+      // All validations passed
       return true;
     }
   </script>
 </head>
 <body>
-  <h1>Passenger Details</h1>
-  <form onsubmit="return validateForm()">
-    <label for="name">Name:</label>
-    <input type="text" id="name" required><br><br>
+  <h1>User Registration</h1>
+  <form onsubmit="return validate()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
     
-    <label for="age">Age:</label>
-    <input type="number" id="age" required><br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+    
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br>
+    
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br>
+    
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" maxlength="2" required><br>
+    
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required><br>
+    
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" name="pincode" maxlength="6" required><br>
+    
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    
+    <label for="password1">Password:</label>
+    <input type="password" id="password1" name="password1" required><br>
     
     <label for="email">Email:</label>
-    <input type="text" id="email" required><br><br>
+    <input type="email" id="email" name="email" required><br>
     
-    <label for="gender">Gender:</label>
-    <select id="gender">
-      <option value="">-- Select Gender --</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select><br><br>
-    
-    <input type="submit" value="Submit">
+    <input type="submit" value="Register">
   </form>
 </body>
 </html>
-
