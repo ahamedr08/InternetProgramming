@@ -1,0 +1,49 @@
+<!--Design a Job Registration form/Sign Up form using HTML. [The Form should
+contains Textbox[name], Radio button [sex], Text area[comments], List
+Items[country],File[Browse], LabelField, Password field[password] and check box.-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Registration</title>
+</head>
+<body>
+  <h1>Job Registration</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    
+    <label for="sex">Sex:</label><br>
+    <input type="radio" id="male" name="sex" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="sex" value="female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" name="sex" value="other">
+    <label for="other">Other</label><br>
+    
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="30"></textarea><br>
+    
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="USA">USA</option>
+      <option value="Canada">Canada</option>
+      <option value="UK">UK</option>
+      <option value="Australia">Australia</option>
+      <option value="Germany">Germany</option>
+    </select><br>
+    
+    <label for="resume">Resume:</label>
+    <input type="file" id="resume" name="resume"><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    
+    <label for="terms">I agree to the terms and conditions:</label>
+    <input type="checkbox" id="terms" name="terms" required><br>
+    
+    <input type="submit" value="Sign Up">
+  </form>
+</body>
+</html>
