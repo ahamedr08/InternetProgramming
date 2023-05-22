@@ -1,5 +1,3 @@
-//ahamed.jsp
-
 <!DOCTYPE html>
 <html>
   <head>
