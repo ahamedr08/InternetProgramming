@@ -1,3 +1,14 @@
+<!----
+To assume a list of student objects, each with the following properties: name, grade, and email. 
+Using JSTL core and formatting tags, create a table that displays the student information sort by name in the table format
+Name	        Grade	Email
+John Doe	    90   	john.doe@example.com
+
+Jane Smith	  85  	jane.smith@example.com
+
+Bob Johnson	  95   	bob.johnson@example.com
+---->
+
 <%@page import="java.util.Comparator"%> 
 <%@page import="java.util.Arrays"%> 
 <%@page import="java.util.Collection"%> 
