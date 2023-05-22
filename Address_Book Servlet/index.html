@@ -1,0 +1,25 @@
+<!---Create an address book servlet that allows the user to register for several mailing lists.
+The address book contains first name, designation, address1, address2, City, State,
+emailid. When emailid is given, it return an HTML page with all the information.--->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Address Book</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="Address_Book" method="get">
+            First Name:<input type="text" name="fname"><br><br>
+            Designation:<input type="text" name="designation"><br><br>
+            Address 1:<input type="text" name="add1"><br><br>
+            Address 2:<input type="text" name="add2"><br><br>
+            State:<input type="text" name="state"><br><br>
+            City:<input type="text" name="city"><br><br>
+            E-mail ID:<input type="email" name="email"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
+
