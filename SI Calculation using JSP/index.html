@@ -1,0 +1,26 @@
+<!--Write a Java Server Page program to find the simple interest .Test this by a client
+program to get the form data inputs (Principal amount, rate of interest,periods) and
+display the result(SI=(P*N*R)/100).-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Interest Calculator</title>
+</head>
+<body>
+    <h1>Simple Interest Calculator</h1>
+    <form action="calculate.jsp" method="post">
+        <label for="principal">Principal amount:</label>
+        <input type="text" id="principal" name="principal" required><br><br>
+        
+        <label for="rate">Rate of interest:</label>
+        <input type="text" id="rate" name="rate" required><br><br>
+        
+        <label for="periods">Periods (in years):</label>
+        <input type="text" id="periods" name="periods" required><br><br>
+        
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
+
