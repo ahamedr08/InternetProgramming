@@ -1,0 +1,20 @@
+<!--Create a dynamic HTML form that allows the user to enter the name of the city.
+While submission of this form, the servlet retrieves and responses the weather report
+for the user entered city.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Report</title>
+</head>
+<body>
+    <h1>Weather Report</h1>
+    <form action="WeatherServlet" method="post">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city" required>
+        <br><br>
+        <input type="submit" value="Get Weather Report">
+    </form>
+</body>
+</html>
+
