@@ -1,0 +1,66 @@
+<!----
+Develop a web page that allows the user to enter all the details of the passenger(name,
+age, email id , gender).Write a client side scripting code to validate the email id ,age
+and gender, where email id should consists of the special symbol @and
+period(.),where age between 1 to 100 and gender is male or female.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Passenger Details</title>
+  <script>
+    function validateForm() {
+      // Retrieve the form values
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var email = document.getElementById("email").value;
+      var gender = document.getElementById("gender").value;
+      
+      // Validate the email format
+      var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+      
+      // Validate the age range
+      if (age < 1 || age > 100) {
+        alert("Please enter a valid age between 1 and 100.");
+        return false;
+      }
+      
+      // Validate the gender
+      if (gender !== "male" && gender !== "female") {
+        alert("Please select a valid gender (male or female).");
+        return false;
+      }
+      
+      // All validations passed, the form can be submitted
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h1>Passenger Details</h1>
+  <form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br><br>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="text" id="email" required><br><br>
+    
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="">-- Select Gender --</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+
