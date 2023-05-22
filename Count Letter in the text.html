@@ -1,0 +1,38 @@
+<!---Create a form that gets input of several lines of text and a search character. On
+clicking the search button in the client form invoke suitable script function to display
+the number of occurrences of the character in the text using suitable string methods.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Occurrence Counter</title>
+  <script>
+    function countOccurrences() {
+      // Retrieve the form input values
+      var text = document.getElementById("text").value;
+      var searchChar = document.getElementById("searchChar").value;
+
+      // Count the occurrences of the search character in the text
+      var occurrences = text.split(searchChar).length - 1;
+
+      // Display the result
+      var result = document.getElementById("result");
+      result.innerHTML = "Occurrences of '" + searchChar + "': " + occurrences;
+    }
+  </script>
+</head>
+<body>
+  <h1>Character Occurrence Counter</h1>
+  <form>
+    <label for="text">Text:</label>
+    <textarea id="text"></textarea><br><br>
+
+    <label for="searchChar">Search Character:</label>
+    <input type="text" id="searchChar" maxlength="1"><br><br>
+
+    <input type="button" value="Search" onclick="countOccurrences()">
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
