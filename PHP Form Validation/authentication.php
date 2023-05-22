@@ -1,5 +1,3 @@
-//authentication.php
-
 <?php
 $servername = "localhost";
 $username = "root";
