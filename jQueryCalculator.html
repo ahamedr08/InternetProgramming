@@ -1,0 +1,66 @@
+//Create two textboxes and one button with + on it. On click of the button you should display sum of the two entered numbers in textbox. 
+Similarly add Subtract, Multiple and Division buttons.
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQUERY EXERCISE 2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h1> Press the symbols to get your Arithmetic Results!!</h1>
+<input type='text' id='t1'></div>
+<input type='text' id='t2'></div>
+<br><br>
+<span id=display>0</span> </div></div>
+<br><br>
+
+<button id=b1>+</button> </div>
+<button id=b2>-</button> </div>
+<button id=b3>*</button> </div>
+<button id=b4>/</button> </div>
+</div>
+
+<script>
+$(document).ready(function() {
+my_function=function my_function() {
+var v1=$('#t1').val();
+var v2=$('#t2').val();
+if(v1.length > 0 && v2.length > 0)
+{
+$("#b1,#b2,#b3,#b4").prop('disabled',false);
+}
+else {
+$("#b1,#b2,#b3,#b4").prop('disabled',true);
+}
+}
+$('#t1,#t2').blur(function() {
+my_function()
+})
+$('#b1').click(function() {
+var v1=parseInt($('#t1').val());
+var v2=parseInt($('#t2').val());
+$('#display').text(v1+v2) 
+})
+
+$('#b2').click(function() {
+var v1=parseInt($('#t1').val());
+var v2=parseInt($('#t2').val());
+$('#display').text(v1-v2) 
+})
+
+$('#b3').click(function() {
+var v1=parseInt($('#t1').val());
+var v2=parseInt($('#t2').val());
+$('#display').text(v1*v2)
+ })
+
+$('#b4').click(function() {
+var v1=parseInt($('#t1').val());
+var v2=parseInt($('#t2').val());
+$('#display').text(v1/v2) 
+})
+})
+</script>
+</body>
+</html>
