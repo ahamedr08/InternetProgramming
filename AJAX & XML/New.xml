@@ -1,0 +1,20 @@
+//New.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<currency>
+  <country name="india">
+    <us>82</us>
+    <uk>102</uk>
+    <singapore>62</singapore>
+  </country>
+  <country name="pakistan">
+    <us>287</us>
+    <uk>358</uk>
+    <singapore>216</singapore>
+  </country>
+  <country name="japan">
+    <us>131</us>
+    <uk>164</uk>
+    <singapore>100</singapore>
+  </country>
+</currency>

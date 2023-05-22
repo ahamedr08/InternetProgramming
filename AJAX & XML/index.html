@@ -1,0 +1,60 @@
+/*Create an XML file containing currency conversion rates for various currencies, and use AJAX to fetch the conversion rate based on the user’s input.
+ Convert given amount from one currency to another and display the result.*/
+
+//index.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Currency Converter</title>
+    </head>
+<body>
+    <h1>Currency Converter</h1>
+    <h2>Enter the Amount : <input type="number" id="a"><h2>
+    <h2>Convert From : 
+  <select id="from">
+    <option value="india">India</option>
+    <option value="pakistan">Pakistan</option>
+    <option value="japan">Japan</option>
+  </select></h2>
+  <h2>Convert To : 
+  <select id="to">
+    <option value="us">US</option>
+    <option value="uk">UK</option>
+    <option value="singapore">Singapore</option>
+  </select></h2>
+  <button onclick="convert()">Convert</button>
+  <h1 id="h"></h1>
+  <h1 id="r"></h1>
+
+  <script>
+    function convert() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          var xml = xhttp.responseXML;
+          display(xml);
+        }
+      };
+      xhttp.open("GET", "New.xml", true);
+      xhttp.send();
+    }
+
+    function display(xml) {
+      var temp = document.getElementById("a").value;
+      var amt = parseInt(temp);
+      var from = document.getElementById("from").value;
+      var to = document.getElementById("to").value;
+      var arr = xml.getElementsByTagName("country");
+      var i;
+      var res;
+      for (i = 0; i < arr.length; i++) {
+        if (from == arr[i].getAttribute("name")) {
+          res = arr[i].getElementsByTagName(to)[0].childNodes[0].nodeValue;
+        }
+      }
+      document.getElementById("h").innerHTML = "Converted Currency : " + (temp / res);
+    }
+  </script>
+</body>
+</html>
