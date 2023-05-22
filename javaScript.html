@@ -1,0 +1,53 @@
+<!---Create a page with JavaScript to do the following. These can all be on one page.
+(a) Prompt the user for their name.
+(b) Use a pop-up box to welcome the user by name.
+(c) Display the current date on the page in the following format: April 30, 2014.
+Do not display the time. Do not "hard code" the date; if I load the page tomorrow,
+I should get a different date than if I load it today.
+(d) Display the last modified date of the document.
+(e) Put some useful advice, on any subject, in the status line of the browser.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Page</title>
+  <style>
+    #advice {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Prompt the user for their name
+    var name = prompt("Please enter your name:");
+
+    // Use a pop-up box to welcome the user by name
+    alert("Welcome, " + name + "!");
+
+    // Display the current date
+    var currentDate = new Date();
+    var formattedDate = currentDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+    document.write("Current Date: " + formattedDate);
+
+    // Display the last modified date of the document
+    document.write("<br>Last Modified: " + document.lastModified);
+
+    // Display the advice message
+    var adviceDiv = document.createElement("div");
+    adviceDiv.id = "advice";
+    adviceDiv.textContent = "Stay hydrated and get enough sleep for a healthy lifestyle!";
+    document.body.appendChild(adviceDiv);
+  </script>
+</body>
+</html>
