@@ -1,0 +1,66 @@
+<!---Develop a web page that allows the user to enter all the details of the passenger(name, age, email id , gender).Write a jQuery code to validate the email id ,age
+and gender, where email id should consists of the special symbol @and period(.),where age between 1 to 100 and gender is male or female--->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Passenger Details</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#passengerForm').submit(function(event) {
+        var email = $('#email').val();
+        var age = parseInt($('#age').val());
+        var gender = $('#gender').val();
+
+        // Validate email format
+        if (!isValidEmail(email)) {
+          alert('Please enter a valid email address.');
+          event.preventDefault();
+        }
+
+        // Validate age range
+        if (age < 1 || age > 100) {
+          alert('Please enter a valid age between 1 and 100.');
+          event.preventDefault();
+        }
+
+        // Validate gender selection
+        if (gender !== 'male' && gender !== 'female') {
+          alert('Please select a valid gender.');
+          event.preventDefault();
+        }
+      });
+
+      // Helper function to validate email format
+      function isValidEmail(email) {
+        var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        return emailRegex.test(email);
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Passenger Details</h1>
+  <form id="passengerForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    <br><br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <br><br>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" >
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+
